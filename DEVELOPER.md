@@ -29,7 +29,8 @@ There is a list of features below which could be interesting.
   - [ ] Provide a blurred line
   - [ ] Provide a smooth line system (using Bezier for instance)
   - [ ] Provide a line which fade away over time
-  - [ ] Provide a way to choose a color in the Editor
+  - [x] Provide a way to choose a color in the Editor
+  - [ ] Provide a way to choose a gradient in the Editor
 
 - [ ] Playmode
   - [ ] Allow to Undo/Redo the drawings
