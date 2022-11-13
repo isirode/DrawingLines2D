@@ -12,6 +12,8 @@ The project also allow to not setup a collision system for the lines:
 
 ![No Physics Example](./Documentation/Resources/NoPhysicsExample.PNG)
 
+Precise and planned features are also available in the [DEVELOPER.md](./DEVELOPER.md) section.
+
 ## Running the project
 
 To run the project, open one of the scenes, and use left click + hold (draw), release the clik when you are done.
