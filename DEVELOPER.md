@@ -59,8 +59,10 @@ There is a list of features below which could be interesting.
   - [ ] Provide an interactive demo in a site web (link it in the README.md section)
 
 - [ ] Code quality
+  - [x] Use a ASM definition file
   - [ ] Add unit tests
 
 - [ ] Automations
   - [ ] Automatic update of the package.json when releasing a version
+  - [ ] Automatic generation of the .unitypackage when releasing a version
 
