@@ -34,6 +34,9 @@ public class LegacyInputController : MonoBehaviour
 
     public new Camera camera;
 
+    public Color lineColor = Color.white;
+    public bool useColor = true;
+
     private void Start()
     {
         if (camera == null)
@@ -68,7 +71,7 @@ public class LegacyInputController : MonoBehaviour
 
             // TODO : provide different line rendering systems
             // Setup the display
-            UnityLineRenderer.Setup(gameObject, points, thickness);
+            UnityLineRenderer.Setup(gameObject, points, thickness, lineColor, useColor);
 
             // TODO : can probably replace it by a polymorphism system
             // Setup the collision
