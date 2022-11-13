@@ -28,6 +28,7 @@ There is a list of features below which could be interesting.
   - [ ] Provide a dashed-line rendering system
   - [ ] Provide a blurred line
   - [ ] Provide a smooth line system (using Bezier for instance)
+  - [ ] Provide a line which fade away over time
 
 - [ ] Playmode
   - [ ] Allow to Undo/Redo the drawings
@@ -40,6 +41,9 @@ There is a list of features below which could be interesting.
   - [ ] Allow to remove a segment / line
   - [ ] Allow to move a segment / line
   - [ ] Allow to split / cut the line
+
+- [ ] Playability
+  - [ ] Option to remove the line after a certain time
 
 - [ ] Geometry
   - [ ] Provide a way to customize the geometry easily
@@ -63,6 +67,9 @@ There is a list of features below which could be interesting.
 - [ ] Demo
   - [ ] Make a GIF for the README.md section
   - [ ] Provide an interactive demo in a site web (link it in the README.md section)
+
+- [ ] Optimizations
+  - [ ] Use an object pool
 
 - [ ] Code quality
   - [x] Use a ASM definition file
