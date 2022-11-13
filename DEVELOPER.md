@@ -11,7 +11,7 @@ There is a list of features below which could be interesting.
 - [ ] Collision
   - [x] Provide a EdgeCollider2D system
   - [x] Provide a PolygonCollider2D composite system
-    - [ ] Provide a not-cracked PolygonCollider2D composite system (using an extra mesh between the segments)
+    - [x] Provide a not-cracked PolygonCollider2D composite system (using an extra mesh between the segments)
     - [ ] Provide a smooth PolygonCollider2D composite system
   - [ ] Provide a BoxCollider2D composite system
   - [ ] Provide a CapsuleCollider2D composite system
@@ -29,6 +29,7 @@ There is a list of features below which could be interesting.
   - [ ] Provide a blurred line
   - [ ] Provide a smooth line system (using Bezier for instance)
   - [ ] Provide a line which fade away over time
+  - [ ] Provide a way to choose a color in the Editor
 
 - [ ] Playmode
   - [ ] Allow to Undo/Redo the drawings
@@ -41,6 +42,7 @@ There is a list of features below which could be interesting.
   - [ ] Allow to remove a segment / line
   - [ ] Allow to move a segment / line
   - [ ] Allow to split / cut the line
+  - [ ] Provide a way to preview the drawing and a way to validate it or cancel it
 
 - [ ] Playability
   - [ ] Option to remove the line after a certain time
@@ -55,6 +57,7 @@ There is a list of features below which could be interesting.
   - [ ] Support new input system
     - [ ] Mouse
     - [ ] Controller
+    - [ ] Touch
 
 - [ ] Networking
   - [ ] Provide a networked controller
