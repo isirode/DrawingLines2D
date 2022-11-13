@@ -57,6 +57,7 @@ There is a list of features below which could be interesting.
   - [ ] Support new input system
     - [ ] Mouse
     - [ ] Controller
+    - [ ] Touch
 
 - [ ] Networking
   - [ ] Provide a networked controller
