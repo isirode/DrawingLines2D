@@ -49,6 +49,15 @@ There is a list of features below which could be interesting.
 - [ ] Networking
   - [ ] Provide a networked controller
 
+- [ ] Render pipelines
+  - [x] Built-in
+  - [ ] URP (should be working as well, not tested)
+  - [ ] HDRP(should be working as well, not tested)
+
+- [ ] Demo
+  - [ ] Make a GIF for the README.md section
+  - [ ] Provide an interactive demo in a site web (link it in the README.md section)
+
 - [ ] Code quality
   - [ ] Add unit tests
 
