@@ -42,6 +42,7 @@ There is a list of features below which could be interesting.
   - [ ] Allow to remove a segment / line
   - [ ] Allow to move a segment / line
   - [ ] Allow to split / cut the line
+  - [ ] Provide a way to preview the drawing and a way to validate it or cancel it
 
 - [ ] Playability
   - [ ] Option to remove the line after a certain time
