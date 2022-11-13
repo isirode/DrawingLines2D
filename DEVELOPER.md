@@ -60,7 +60,7 @@ There is a list of features below which could be interesting.
   - [ ] Provide a way to close the mesh if the start and the end are close
 
 - [ ] Input system
-  - [ ] Support legacy input system
+  - [x] Support legacy input system
   - [ ] Support new input system
     - [ ] Mouse
     - [ ] Controller
