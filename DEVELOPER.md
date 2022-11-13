@@ -83,8 +83,10 @@ There is a list of features below which could be interesting.
   - [x] Polygon composite collider
   - [x] Color picking in the Editor
   - [x] Gradient picking in the Editor
+  - [x] Color changing after each line using a color pool
   - [ ] System
-    - [ ] Load the static assets at playtime so that they can be all edited at once, or use a prefab
+    - [x] Use a prefab for the static assets at playtime so that they can be all edited at once
+    - [ ] Load some static assets at playtime
 
 - [ ] Optimizations
   - [ ] Use an object pool
