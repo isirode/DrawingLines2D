@@ -45,8 +45,14 @@ There is a list of features below which could be interesting.
   - [ ] Allow to split / cut the line
   - [ ] Provide a way to preview the drawing and a way to validate it or cancel it
 
+- [ ] System
+  - [ ] Callback when about to add a line (can cancel the adding)
+  - [ ] Callback when a line was added
+
 - [ ] Playability
   - [ ] Option to remove the line after a certain time
+  - [ ] Option to stop adding points if a certain distance between start point and end point is attained
+  - [ ] Option to stop adding points if a certain length of the line is attained
 
 - [ ] Geometry
   - [ ] Provide a way to customize the geometry easily
@@ -71,6 +77,14 @@ There is a list of features below which could be interesting.
 - [ ] Demo
   - [ ] Make a GIF for the README.md section
   - [ ] Provide an interactive demo in a site web (link it in the README.md section)
+
+- [ ] Examples
+  - [x] No physics
+  - [x] Polygon composite collider
+  - [x] Color picking in the Editor
+  - [x] Gradient picking in the Editor
+  - [ ] System
+    - [ ] Load the static assets at playtime so that they can be all edited at once, or use a prefab
 
 - [ ] Optimizations
   - [ ] Use an object pool
