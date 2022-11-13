@@ -37,6 +37,16 @@ public class LegacyInputController : MonoBehaviour
     public Color lineColor = Color.white;
     public bool useColor = true;
 
+    /// <summary>
+    /// Click on it to open the editor
+    /// Click below it to add a color
+    /// Click on a pin to set it's color
+    /// Click on a pin and click "del" to remove a pin
+    /// Click on top of it to set an alpha value
+    /// </summary>
+    public Gradient lineGradient;
+    public bool useGradient = false;
+
     private void Start()
     {
         if (camera == null)
@@ -71,7 +81,7 @@ public class LegacyInputController : MonoBehaviour
 
             // TODO : provide different line rendering systems
             // Setup the display
-            UnityLineRenderer.Setup(gameObject, points, thickness, lineColor, useColor);
+            UnityLineRenderer.Setup(gameObject, points, thickness, lineColor, useColor, lineGradient, useGradient);
 
             // TODO : can probably replace it by a polymorphism system
             // Setup the collision

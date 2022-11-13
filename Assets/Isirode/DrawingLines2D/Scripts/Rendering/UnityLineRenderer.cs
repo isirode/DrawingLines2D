@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UnityLineRenderer
 {
-    public static void Setup(GameObject gameObject, List<Vector3> points, float thickness, Color lineColor, bool useColor)
+    public static void Setup(GameObject gameObject, List<Vector3> points, float thickness, Color lineColor, bool useColor, Gradient lineGradient, bool useGradient)
     {
         var lineRenderer = gameObject.GetComponent<LineRenderer>();
         if (lineRenderer == null)
@@ -19,6 +19,10 @@ public class UnityLineRenderer
         {
             lineRenderer.startColor = lineColor;
             lineRenderer.endColor = lineColor;
+        }
+        if (useGradient)
+        {
+            lineRenderer.colorGradient = lineGradient;
         }
     }
 }
