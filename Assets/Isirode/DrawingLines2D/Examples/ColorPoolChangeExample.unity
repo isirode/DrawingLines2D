@@ -217,6 +217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 870245646}
   - component: {fileID: 870245647}
+  - component: {fileID: 870245648}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -288,7 +289,27 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   useGradient: 0
---- !u!1001 &1944327482
+--- !u!114 &870245648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870245645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e16b61d287ad030469b7d3c88e6b01eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 0.061502814, g: 1, b: 0, a: 1}
+  - {r: 1, g: 0.96559095, b: 0, a: 1}
+  - {r: 1, g: 0.5958983, b: 0, a: 1}
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0.9622642, g: 0, b: 0.87301826, a: 1}
+  colorIndex: 0
+  legacyInputController: {fileID: 870245647}
+--- !u!1001 &771654449861268232
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2

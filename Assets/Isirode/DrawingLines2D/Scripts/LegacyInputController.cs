@@ -47,6 +47,10 @@ public class LegacyInputController : MonoBehaviour
     public Gradient lineGradient;
     public bool useGradient = false;
 
+    // TODO : move it to another common class
+    public delegate void LineAddedDelegate(List<Vector3> points, GameObject gameObject);
+    public event LineAddedDelegate LineAdded;
+
     private void Start()
     {
         if (camera == null)
@@ -115,6 +119,8 @@ public class LegacyInputController : MonoBehaviour
             {
                 rigidBody2D.isKinematic = false;
             }
+
+            LineAdded?.Invoke(points, gameObject);
         }
     }
 
