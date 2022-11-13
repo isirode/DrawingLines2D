@@ -30,7 +30,7 @@ There is a list of features below which could be interesting.
   - [ ] Provide a smooth line system (using Bezier for instance)
   - [ ] Provide a line which fade away over time
   - [x] Provide a way to choose a color in the Editor
-  - [ ] Provide a way to choose a gradient in the Editor
+  - [x] Provide a way to choose a gradient in the Editor
 
 - [ ] Playmode
   - [ ] Allow to Undo/Redo the drawings
@@ -47,7 +47,7 @@ There is a list of features below which could be interesting.
 
 - [ ] System
   - [ ] Callback when about to add a line (can cancel the adding)
-  - [ ] Callback when a line was added
+  - [x] Callback when a line was added
 
 - [ ] Playability
   - [ ] Option to remove the line after a certain time
