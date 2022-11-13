@@ -58,6 +58,14 @@ public class LegacyInputController : MonoBehaviour
             var points = recorder.Get();
             var gameObject = Instantiate(prefab, this.gameObject.transform);
 
+            // WARNING : this is not working, the colliders are not spawned
+            // gameObject.SetActive(false);
+            var rigidBody2D = gameObject.GetComponent<Rigidbody2D>();
+            if (rigidBody2D != null)
+            {
+                rigidBody2D.isKinematic = true;
+            }
+
             // TODO : provide different line rendering systems
             // Setup the display
             UnityLineRenderer.Setup(gameObject, points, thickness);
@@ -86,6 +94,13 @@ public class LegacyInputController : MonoBehaviour
                     break;
                 default:
                     throw new Exception($"{nameof(PhysicsType)} {physicsType} is not currently handler.");
+            }
+
+            // WARNING : awaiting the game object to be ready before spawning it actively
+            // gameObject.SetActive(true);
+            if (rigidBody2D != null)
+            {
+                rigidBody2D.isKinematic = false;
             }
         }
     }

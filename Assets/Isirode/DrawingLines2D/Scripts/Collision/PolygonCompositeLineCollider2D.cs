@@ -29,6 +29,11 @@ public class PolygonCompositeLineCollider2D
         // collider.offsetDistance = 0.3f;
 
         var points2D = points.ConvertAll<Vector2>(point => new Vector2(point.x, point.y));
+
+        // I suppose the default is impossible to occur naturally
+        Vector2 previous1 = default(Vector2);
+        Vector2 previous2 = default(Vector2);
+
         for (int i = 0; i < points2D.Count; i++)
         {
             // Info : we explicitly dont do the last segment since it does not exist
@@ -52,6 +57,33 @@ public class PolygonCompositeLineCollider2D
             //polygon.offset = 0.1f;
             polygon.usedByComposite = true;
             // polygon.usedByEffector = false;
+
+            // TODO : condition this to an option ?
+            if (previous1 != default(Vector2) && previous2 != default(Vector2))
+            {
+                Debug.Log("Filling in");
+                PolygonCollider2D fillCracksPolygon = gameObject.AddComponent<PolygonCollider2D>();
+
+                // WARNING : the order is important, otherwise it will be an X mesh
+                fillCracksPolygon.points = (new List<Vector2>() { previous2, previous1, one, two, }.ToArray());
+                fillCracksPolygon.pathCount = 1;
+                fillCracksPolygon.SetPath(0, fillCracksPolygon.points);
+                //polygon.offset = 0.1f;
+                fillCracksPolygon.usedByComposite = true;
+            }
+
+            previous1 = three;
+            previous2 = four;
+
+            if (previous1 == default(Vector2))
+            {
+                Debug.LogWarning($"The vertice {nameof(previous1)} was equal to {nameof(Vector2)} default value ({default(Vector2)}). It is not supposed to occur.");
+            }
+            if (previous2 == default(Vector2))
+            {
+                Debug.LogWarning($"The vertice {nameof(previous2)} was equal to {nameof(Vector2)} default value ({default(Vector2)}). It is not supposed to occur.");
+            }
+
         }
         collider.GenerateGeometry();
     }
