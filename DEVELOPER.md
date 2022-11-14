@@ -100,6 +100,7 @@ There is a list of features below which could be interesting.
   - [x] Color changing after each line using a color pool
   - [x] Dummy length limiter
   - [x] Dummy distance limiter
+  - [x] Dummy distance limiter + display the limit using outline circle
   - [ ] System
     - [x] Use a prefab for the static assets at playtime so that they can be all edited at once
     - [ ] Load some static assets at playtime
