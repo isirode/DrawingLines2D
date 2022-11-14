@@ -33,6 +33,8 @@ public class DistanceLimiter : MonoBehaviour
 
     private void PointAdded(List<Vector3> currentPoints, Vector3 newPoint)
     {
+        // Debug.Log(nameof(PointAdded));
+
         if (firstPoint == default(Vector2))
         {
             firstPoint = new Vector2(newPoint.x, newPoint.y);
@@ -41,10 +43,12 @@ public class DistanceLimiter : MonoBehaviour
 
         float currentDistance = Vector2.Distance(firstPoint, newPoint);
 
-        Debug.Log($"Current distance to first point : {currentDistance}");
+        // Debug.Log($"Current distance to first point : {currentDistance}");
 
         if (currentDistance >= limit)
         {
+            // Debug.Log("current distance >= limit");
+
             // Info : we could use the delegate LineAdded which would reset the state
             legacyInputController.AddLine();
             ResetState();
@@ -59,6 +63,7 @@ public class DistanceLimiter : MonoBehaviour
     // Info : Reset method is a Unity method
     private void ResetState()
     {
+        // Debug.Log(nameof(ResetState));
         // FIXME : this is used as an hidden state control, maybe use an explicit state
         firstPoint = default(Vector2);
     }

@@ -7,13 +7,14 @@ public class LegacyInputController : MonoBehaviour
 {
     // TODO : provide a color picker and other LineRenderer related properties ?
 
-    enum DrawingState
+    public enum DrawingState
     {
         Waiting,
         AddingPoints
     }
 
-    DrawingState drawingState;
+    [NonSerialized]
+    public DrawingState drawingState;
     Vector2Recorder<Vector3> recorder = new Vector2Recorder<Vector3>();
 
     public Coroutine repeatingCoroutine;
@@ -77,6 +78,8 @@ public class LegacyInputController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && drawingState == DrawingState.Waiting)
         {
+            // Debug.Log("Start drawing");
+
             drawingState = DrawingState.AddingPoints;
             currentLineGameObject = null;
             recorder.Clear();
@@ -93,8 +96,8 @@ public class LegacyInputController : MonoBehaviour
     /// </summary>
     public void AddLine()
     {
-        drawingState = DrawingState.Waiting;
-        StopCoroutine(repeatingCoroutine);
+        // Debug.Log(nameof(AddLine));
+        Stop();
 
         var points = recorder.Get();
 
@@ -201,5 +204,13 @@ public class LegacyInputController : MonoBehaviour
 
             yield return new WaitForSeconds(recordLatency);
         }
+    }
+
+    public void Stop()
+    {
+        // Debug.Log(nameof(Stop));
+
+        StopCoroutine(repeatingCoroutine);
+        drawingState = DrawingState.Waiting;
     }
 }
