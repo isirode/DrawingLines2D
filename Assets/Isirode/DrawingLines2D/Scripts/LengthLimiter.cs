@@ -5,17 +5,17 @@ using UnityEngine;
 /// <summary>
 /// This allow to stop adding points and render the line when the limit is reached
 /// This assume that only one line is computed at a time
+/// WARNING : the class allow to have a line of cumulated length superior to the limit since the limit will be applied after the new point is added
 /// </summary>
 public class LengthLimiter : MonoBehaviour
 {
-    public float limit = 50f;
+    public float limit = 15f;
 
     public LegacyInputController legacyInputController;
 
     private Vector2 lastPoint = default(Vector2);
     private float currentLength = 0f;
 
-    // Start is called before the first frame update
     void Start()
     {
         if (legacyInputController == null)
@@ -50,6 +50,10 @@ public class LengthLimiter : MonoBehaviour
             // Info : we could use the delegate LineAdded which would reset the state of the LengthLimiter
             legacyInputController.AddLine();
             ResetState();
+        }
+        else
+        {
+            lastPoint = newPoint;
         }
     }
 
