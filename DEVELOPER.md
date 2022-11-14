@@ -48,14 +48,26 @@ There is a list of features below which could be interesting.
 - [ ] System
   - [ ] Callback when about to add a line (can cancel the adding)
   - [x] Callback when a line was added
+  - [x] Callback when a point was added
 
 - [ ] Playability
   - [ ] Option to remove the line after a certain time
   - [ ] Option to stop adding points if a certain distance between start point and end point is attained
+    - [x] Dummy version (the limit can be slightly breached)
+    - [ ] Strict version
+      - Either do not add the last point if above the distance, draw the line and obtain a distance strictly inferior to the limit
+      - Or obtain a last point exactly at the limit
+    - [ ] Display the limit using a circle (plain or outline)
   - [ ] Option to stop adding points if a certain length of the line is attained
+    - [x] Dummy version (the limit can be slightly breached)
+    - [ ] Strict version
+      - Either do not add the last point if above the distance, draw the line and obtain a length strictly inferior to the limit
+      - Or obtain a last point exactly at the limit, by removing a certain amount of length to it
+    - [ ] Display the limit using a number
+    - [ ] Display the limit using a gauge, bar etc
 
 - [ ] Geometry
-  - [ ] Provide a way to customize the geometry easily
+  - [ ] Provide a way to customize the geometry easily (adding elements, modifying it etc)
   - [ ] Provide a way to paint custom meshes onto the line
   - [ ] Provide a way to close the mesh if the start and the end are close
 
@@ -84,6 +96,8 @@ There is a list of features below which could be interesting.
   - [x] Color picking in the Editor
   - [x] Gradient picking in the Editor
   - [x] Color changing after each line using a color pool
+  - [x] Dummy length limiter
+  - [x] Dummy distance limiter
   - [ ] System
     - [x] Use a prefab for the static assets at playtime so that they can be all edited at once
     - [ ] Load some static assets at playtime
