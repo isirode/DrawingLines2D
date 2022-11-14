@@ -57,7 +57,9 @@ There is a list of features below which could be interesting.
     - [ ] Strict version
       - Either do not add the last point if above the distance, draw the line and obtain a distance strictly inferior to the limit
       - Or obtain a last point exactly at the limit
-    - [ ] Display the limit using a circle (plain or outline)
+    - [ ] Display the limit using a circle
+      - [x] Outline
+      - [ ] Plain
   - [ ] Option to stop adding points if a certain length of the line is attained
     - [x] Dummy version (the limit can be slightly breached)
     - [ ] Strict version
