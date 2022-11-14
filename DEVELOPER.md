@@ -44,6 +44,9 @@ There is a list of features below which could be interesting.
   - [ ] Allow to move a segment / line
   - [ ] Allow to split / cut the line
   - [ ] Provide a way to preview the drawing and a way to validate it or cancel it
+    - [x] Preview
+    - [x] Validation
+    - [ ] Cancellation
 
 - [ ] System
   - [ ] Callback when about to add a line (can cancel the adding)
@@ -101,6 +104,7 @@ There is a list of features below which could be interesting.
   - [x] Dummy length limiter
   - [x] Dummy distance limiter
   - [x] Dummy distance limiter + display the limit using outline circle
+  - [x] Live preview
   - [ ] System
     - [x] Use a prefab for the static assets at playtime so that they can be all edited at once
     - [ ] Load some static assets at playtime
