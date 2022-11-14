@@ -47,6 +47,11 @@ public class SimpleDistanceDisplayer : MonoBehaviour
         }
     }
 
+    // TODO : there seem to be a bug, the circle is sometime shown after the line was added
+    // Case 1 : click, drag, go outside the limit : the circle will disappear and reappear immediatly, releasing the mouse after that or going outside the circle will do nothing
+    // Case 2 : drawing normally and releasing the mouse inside the circle : it work fine
+    //      Rarely, this does not work, I click, the circle is displayed but there is no lines
+    // The sequence of callbacks + the state management must be wrong
     private void PointAdded(List<Vector3> currentPoints, Vector3 newPoint)
     {
         if (lineRenderer == null || drawRing == null || distanceLimiter == null)

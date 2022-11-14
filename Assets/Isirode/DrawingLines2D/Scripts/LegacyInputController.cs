@@ -38,6 +38,12 @@ public class LegacyInputController : MonoBehaviour
     public bool useColor = true;
 
     /// <summary>
+    /// If set to true, the line will be shown live, the collider will only be added when the drawing is done
+    /// </summary>
+    public bool livePreview = false;
+    private GameObject currentLineGameObject;
+
+    /// <summary>
     /// Click on it to open the editor
     /// Click below it to add a color
     /// Click on a pin to set it's color
@@ -72,6 +78,7 @@ public class LegacyInputController : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && drawingState == DrawingState.Waiting)
         {
             drawingState = DrawingState.AddingPoints;
+            currentLineGameObject = null;
             recorder.Clear();
             repeatingCoroutine = StartCoroutine(AddPoint());
         } 
@@ -90,19 +97,36 @@ public class LegacyInputController : MonoBehaviour
         StopCoroutine(repeatingCoroutine);
 
         var points = recorder.Get();
-        var gameObject = Instantiate(prefab, this.gameObject.transform);
+
+        Rigidbody2D rigidbody2D;
+
+        if (livePreview)
+        {
+            if (currentLineGameObject == null)
+            {
+                Debug.LogWarning($"{nameof(currentLineGameObject)} is null, but {nameof(livePreview)} is on, it should be null.");
+
+                currentLineGameObject = Instantiate(prefab, this.gameObject.transform);
+            }
+        }
+        else
+        {
+            currentLineGameObject = Instantiate(prefab, this.gameObject.transform);
+        }
 
         // WARNING : this is not working, the colliders are not spawned
         // gameObject.SetActive(false);
-        var rigidBody2D = gameObject.GetComponent<Rigidbody2D>();
-        if (rigidBody2D != null)
+        rigidbody2D = currentLineGameObject.GetComponent<Rigidbody2D>();
+        if (rigidbody2D != null)
         {
-            rigidBody2D.isKinematic = true;
+            rigidbody2D.isKinematic = true;
+            rigidbody2D.simulated = false;
         }
 
         // TODO : provide different line rendering systems
         // Setup the display
-        UnityLineRenderer.Setup(gameObject, points, thickness, lineColor, useColor, lineGradient, useGradient);
+        // FIXME : could skip it if livePreview is true ?
+        UnityLineRenderer.Setup(currentLineGameObject, points, thickness, lineColor, useColor, lineGradient, useGradient);
 
         // TODO : can probably replace it by a polymorphism system
         // Setup the collision
@@ -110,21 +134,21 @@ public class LegacyInputController : MonoBehaviour
         {
             case PhysicsType.NoPhysics:
                 // do nothing
-                var collider = gameObject.GetComponent<Collider2D>();
+                var collider = currentLineGameObject.GetComponent<Collider2D>();
                 if (collider != null)
                 {
                     Debug.LogWarning($"You have picked {nameof(PhysicsType)} {physicsType} but a {nameof(Collider2D)} {collider.GetType().Name} is present in the chosen prefab {prefab.name}.");
                 }
-                if (gameObject.GetComponent<Rigidbody2D>())
+                if (currentLineGameObject.GetComponent<Rigidbody2D>())
                 {
                     Debug.LogWarning($"You have picked {nameof(PhysicsType)} {physicsType} but a {nameof(Rigidbody2D)} is present in the chosen prefab {prefab.name}.");
                 }
                 break;
             case PhysicsType.EdgeCollider2D:
-                EdgeCollider2DLineCollider2D.Setup(gameObject, points, thickness);
+                EdgeCollider2DLineCollider2D.Setup(currentLineGameObject, points, thickness);
                 break;
             case PhysicsType.PolygonComposite2D:
-                PolygonCompositeLineCollider2D.Setup(gameObject, points, thickness * COLLIDER_THICKNESS_MULTIPLIER);
+                PolygonCompositeLineCollider2D.Setup(currentLineGameObject, points, thickness * COLLIDER_THICKNESS_MULTIPLIER);
                 break;
             default:
                 throw new Exception($"{nameof(PhysicsType)} {physicsType} is not currently handler.");
@@ -132,12 +156,15 @@ public class LegacyInputController : MonoBehaviour
 
         // WARNING : awaiting the game object to be ready before spawning it actively
         // gameObject.SetActive(true);
-        if (rigidBody2D != null)
+        if (rigidbody2D != null)
         {
-            rigidBody2D.isKinematic = false;
+            rigidbody2D.isKinematic = false;
+            rigidbody2D.simulated = true;
         }
 
-        LineAdded?.Invoke(points, gameObject);
+        LineAdded?.Invoke(points, currentLineGameObject);
+
+        currentLineGameObject = null;
     }
 
     IEnumerator AddPoint()
@@ -147,7 +174,31 @@ public class LegacyInputController : MonoBehaviour
             // WARN : using camera near clipping plane is important, without it, the LineRenderer will not be visible
             Vector3 newPoint = camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Mathf.Min(camera.nearClipPlane, 0.5f)));
             recorder.Add(newPoint);
+
+            // FIXME : maybe call the delegate PointAdded before rendering it
+            // Info : could make another class for the live preview, but it would need to reset the points anyway it seems
+            // There is a possility that increasing the count and using SetPosition() would work without the reset
+            if (livePreview)
+            {
+                if (currentLineGameObject == null)
+                {
+                    currentLineGameObject = Instantiate(prefab, this.gameObject.transform);
+                    var rigidBody2D = currentLineGameObject.GetComponent<Rigidbody2D>();
+
+                    if (rigidBody2D != null)
+                    {
+                        // TODO : make it an extension ?
+                        // FIXME : use Sleep instead ?
+                        //   If yes, modify the other parts of the code using this
+                        rigidBody2D.isKinematic = true;
+                        rigidBody2D.simulated = false;
+                    }
+                }
+                UnityLineRenderer.Setup(currentLineGameObject, recorder.Get(), thickness, lineColor, useColor, lineGradient, useGradient);
+            }
+
             PointAdded?.Invoke(recorder.Get(), newPoint);
+
             yield return new WaitForSeconds(recordLatency);
         }
     }
