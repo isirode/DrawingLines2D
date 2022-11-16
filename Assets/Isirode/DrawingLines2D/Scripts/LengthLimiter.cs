@@ -48,7 +48,7 @@ public class LengthLimiter : MonoBehaviour
         if (currentLength >= limit)
         {
             // Info : we could use the delegate LineAdded which would reset the state of the LengthLimiter
-            legacyInputController.AddLine();
+            legacyInputController.FinishLine();
             ResetState();
         }
         else

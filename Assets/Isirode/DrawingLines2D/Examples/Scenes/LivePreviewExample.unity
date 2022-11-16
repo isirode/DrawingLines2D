@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 870245648}
   - component: {fileID: 870245649}
   - component: {fileID: 870245650}
+  - component: {fileID: 870245651}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -254,11 +255,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fc6df17ab0e46c468dd67ad03ec9ca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 0}
   recordLatency: 0.1
+--- !u!114 &870245648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870245645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e16b61d287ad030469b7d3c88e6b01eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 0.061502814, g: 1, b: 0, a: 1}
+  - {r: 1, g: 0.96559095, b: 0, a: 1}
+  - {r: 1, g: 0.5958983, b: 0, a: 1}
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0.9622642, g: 0, b: 0.87301826, a: 1}
+  colorIndex: 0
+  basicLineController: {fileID: 0}
+--- !u!114 &870245649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870245645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e96e480cfc04546a0726f143da7865, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  limit: 5
+  legacyInputController: {fileID: 0}
+--- !u!114 &870245650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870245645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e80d51348590db4ea07a769bafd41fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  legacyInputController: {fileID: 0}
+  drawRing: {fileID: 1780097997}
+  lineRenderer: {fileID: 1780097998}
+  distanceLimiter: {fileID: 0}
+--- !u!114 &870245651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870245645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aceb896f6d131b47a054a4964969062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   physicsType: 2
   prefab: {fileID: 2433377063246152986, guid: c99360c9ff843fa43a82b8da194a8909, type: 3}
   thickness: 0.1
-  camera: {fileID: 0}
   lineColor: {r: 1, g: 1, b: 1, a: 1}
   useColor: 1
   livePreview: 1
@@ -292,56 +355,7 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   useGradient: 0
---- !u!114 &870245648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 870245645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e16b61d287ad030469b7d3c88e6b01eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colors:
-  - {r: 0.061502814, g: 1, b: 0, a: 1}
-  - {r: 1, g: 0.96559095, b: 0, a: 1}
-  - {r: 1, g: 0.5958983, b: 0, a: 1}
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0.9622642, g: 0, b: 0.87301826, a: 1}
-  colorIndex: 0
-  legacyInputController: {fileID: 870245647}
---- !u!114 &870245649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 870245645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14e96e480cfc04546a0726f143da7865, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  limit: 5
   legacyInputController: {fileID: 0}
---- !u!114 &870245650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 870245645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e80d51348590db4ea07a769bafd41fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  legacyInputController: {fileID: 0}
-  drawRing: {fileID: 1780097997}
-  lineRenderer: {fileID: 1780097998}
-  distanceLimiter: {fileID: 0}
 --- !u!1 &1780097996
 GameObject:
   m_ObjectHideFlags: 0

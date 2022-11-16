@@ -47,14 +47,15 @@ public class DistanceLimiter : MonoBehaviour
 
         if (currentDistance >= limit)
         {
-            // Debug.Log("current distance >= limit");
+            Debug.Log("current distance >= limit");
 
             // Info : we could use the delegate LineAdded which would reset the state
-            legacyInputController.AddLine();
+            legacyInputController.FinishLine();
             ResetState();
         }
     }
 
+    // FIXME : could use the delegate here
     private void LineAdded(List<Vector3> points, GameObject gameObject)
     {
         ResetState();

@@ -24,8 +24,10 @@ public class SimpleDistanceDisplayer : MonoBehaviour
         }
         if (legacyInputController != null)
         {
+            // FIXME : listen to the callbacks of BasicLineControlle ?
+            // If so, will not be usable with another controller
             legacyInputController.PointAdded += PointAdded;
-            legacyInputController.LineAdded += LineAdded;
+            legacyInputController.LineFinished += OnLineFinished;
         }
         else
         {
@@ -76,7 +78,7 @@ public class SimpleDistanceDisplayer : MonoBehaviour
     }
 
 
-    private void LineAdded(List<Vector3> points, GameObject gameObject)
+    private void OnLineFinished(List<Vector3> points)
     {
         // Debug.Log("Stop rendering the circle");
 

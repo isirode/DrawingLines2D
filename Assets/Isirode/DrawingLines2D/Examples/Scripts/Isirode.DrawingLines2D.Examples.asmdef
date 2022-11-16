@@ -1,0 +1,17 @@
+{
+    "name": "Isirode.DrawingLines2D.Examples",
+    "rootNamespace": "",
+    "references": [
+        "GUID:12d617919fa6433498db558e0eab4501",
+        "GUID:30817c1a0e6d646d99c048fc403f5979"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

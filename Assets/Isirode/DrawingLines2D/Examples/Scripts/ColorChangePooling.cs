@@ -16,23 +16,23 @@ public class ColorChangePooling : MonoBehaviour
     private Queue<Color> colorQueue = new Queue<Color>();
     public int colorIndex;
 
-    public LegacyInputController legacyInputController;
+    public BasicLineController basicLineController;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (legacyInputController == null)
+        if (basicLineController == null)
         {
             // attempt to load it from the current game object
-            legacyInputController = GetComponent<LegacyInputController>();
+            basicLineController = GetComponent<BasicLineController>();
         }
-        if (legacyInputController != null)
+        if (basicLineController != null)
         {
-            legacyInputController.LineAdded += ChangeColor;
+            basicLineController.LineAdded += ChangeColor;
         }
         else
         {
-            Debug.LogWarning($"{nameof(legacyInputController)} is null.");
+            Debug.LogWarning($"{nameof(basicLineController)} is null.");
         }
 
         if (colors.Count != 0)
@@ -52,7 +52,7 @@ public class ColorChangePooling : MonoBehaviour
         // FIXME : it is probably less optimize to do it this instead of changing an index
         var nextColor = colorQueue.Dequeue();
 
-        legacyInputController.lineColor = nextColor;
+        basicLineController.lineColor = nextColor;
 
         colorQueue.Enqueue(nextColor);
     }
