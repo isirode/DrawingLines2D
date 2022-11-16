@@ -70,6 +70,15 @@ There is a list of features below which could be interesting.
       - Or obtain a last point exactly at the limit, by removing a certain amount of length to it
     - [ ] Display the limit using a number
     - [ ] Display the limit using a gauge, bar etc
+  - [ ] Option to start drawing from an existing line (like a tree maybe)
+  - [ ] Option to draw only
+    - [ ] For some value of an axis
+    - [ ] Inside a box
+    - [ ] Inside a mesh
+  - [ ] Option to move an object at the cursor's position
+  - [ ] Option to not draw over an existing line
+    - [ ] All lines
+    - [ ] Only certain lines
 
 - [ ] Geometry
   - [ ] Provide a way to customize the geometry easily (adding elements, modifying it etc)
@@ -85,6 +94,8 @@ There is a list of features below which could be interesting.
 
 - [ ] Networking
   - [ ] Provide a networked controller
+    - [x] Basic setup
+    - [ ] Support for the other functionalities
 
 - [ ] Render pipelines
   - [x] Built-in
@@ -105,6 +116,7 @@ There is a list of features below which could be interesting.
   - [x] Dummy distance limiter
   - [x] Dummy distance limiter + display the limit using outline circle
   - [x] Live preview
+  - [x] Networking
   - [ ] System
     - [x] Use a prefab for the static assets at playtime so that they can be all edited at once
     - [ ] Load some static assets at playtime
@@ -119,4 +131,8 @@ There is a list of features below which could be interesting.
 - [ ] Automations
   - [ ] Automatic update of the package.json when releasing a version
   - [ ] Automatic generation of the .unitypackage when releasing a version
+  - [ ] Find a way to add external assets without adding them to .git and without needing manual actions
+    - Using Git's submodules : not familiar with it, could work without to have to fork the dependencies
+    - Using Unity's package system : would need to fork the projects which don't have a package.json, less interactive
+    - There is some project on the web for this, also, it seems : not familiar with them
 
