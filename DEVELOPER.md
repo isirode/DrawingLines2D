@@ -79,6 +79,8 @@ There is a list of features below which could be interesting.
   - [ ] Option to not draw over an existing line
     - [ ] All lines
     - [ ] Only certain lines
+  - [ ] Option to have a minimum distance line
+  - [ ] Option to have a minimum length line
 
 - [ ] Geometry
   - [ ] Provide a way to customize the geometry easily (adding elements, modifying it etc)
@@ -96,6 +98,7 @@ There is a list of features below which could be interesting.
   - [ ] Provide a networked controller
     - [x] Basic setup
     - [ ] Support for the other functionalities
+      - [x] Live preview
 
 - [ ] Render pipelines
   - [x] Built-in
@@ -117,6 +120,7 @@ There is a list of features below which could be interesting.
   - [x] Dummy distance limiter + display the limit using outline circle
   - [x] Live preview
   - [x] Networking
+  - [x] Networking with live preview (shared to other players)
   - [ ] System
     - [x] Use a prefab for the static assets at playtime so that they can be all edited at once
     - [ ] Load some static assets at playtime
