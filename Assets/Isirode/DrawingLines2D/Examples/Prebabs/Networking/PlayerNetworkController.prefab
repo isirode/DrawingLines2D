@@ -81,11 +81,12 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   physicsType: 2
-  prefab: {fileID: 915642528207442139, guid: 80968c3ef4a49c34391deaf2e756f5a3, type: 3}
+  prefab: {fileID: 3429156263248347452, guid: 823b2f69ade9e9b47b9c468f75e14ddc, type: 3}
   thickness: 0.1
   lineColor: {r: 1, g: 1, b: 1, a: 1}
   useColor: 1
   livePreview: 1
+  previewing: 0
   lineGradient:
     serializedVersion: 2
     key0: {r: 1, g: 1, b: 1, a: 1}

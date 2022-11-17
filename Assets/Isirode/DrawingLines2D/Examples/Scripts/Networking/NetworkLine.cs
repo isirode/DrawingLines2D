@@ -32,6 +32,12 @@ public class NetworkLine : NetworkBehaviour
     [SyncVar]
     public bool useGradient;
 
+    [SyncVar]
+    public bool isPreview;
+
+    [SyncVar]
+    public string ownerPlayerGuid;
+
     private LineRenderer lineRenderer;
 
     /*
@@ -83,6 +89,7 @@ public class NetworkLine : NetworkBehaviour
         Debug.Log(nameof(Start));
         if (lineRenderer == null)
         {
+            // TODO : this is not always true, maybe wether the script is inside a client+host or server is available
             Debug.LogWarning($"{nameof(LineRenderer)} is not set but should have been set by {nameof(OnStartClient)}.");
             lineRenderer = GetComponent<LineRenderer>();
             if (lineRenderer == null)
@@ -110,6 +117,8 @@ public class NetworkLine : NetworkBehaviour
 
         Debug.Log($"{nameof(oldPoints)} : {string.Join(',', oldPoints)}");
         Debug.Log($"{nameof(newPoints)} : {string.Join(',', newPoints)}");
+
+        UnityLineRenderer.Setup(gameObject, newPoints, thickness, lineColor, useColor, null, useGradient);
     }
 
 }
