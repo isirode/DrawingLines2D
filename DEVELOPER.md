@@ -115,6 +115,9 @@ There is a list of features below which could be interesting.
 - [ ] Demo
   - [ ] Make a GIF for the README.md section
   - [ ] Provide an interactive demo in a site web (link it in the README.md section)
+    - [x] Github Pages demo ([demo](https://isirode.github.io/DrawingLines2DDemo), [repository](https://github.com/isirode/DrawingLines2DDemo))
+    - [ ] Itch.io demo
+    - [ ] Networking demo
 
 - [ ] Examples
   - [x] No physics
@@ -152,4 +155,7 @@ There is a list of features below which could be interesting.
     - Using Git's submodules : not familiar with it, could work without to have to fork the dependencies
     - Using Unity's package system : would need to fork the projects which don't have a package.json, less interactive
     - There is some project on the web for this, also, it seems : not familiar with them
+  - [ ] WebGL automated build
+    - It takes a long time to build
+    - It takes a long time to switch the build's target platform
 
