@@ -126,7 +126,12 @@ There is a list of features below which could be interesting.
   - [x] Dummy distance limiter + display the limit using outline circle
   - [x] Live preview
   - [x] Networking
+    - Make sure you have added the networking scene to the scenes of the build, in "Build Settings"
+    - Click on "Build and run"
+    - You can now run the example in the Editor
+    - Put one of the instances in "Host + client" or "Server", the other instance in "Client"
   - [x] Networking with live preview (shared to other players)
+    - Same thing as "Networking" but the lines should be synced as you draw them, with the other instances
   - [x] Free movement
   - [ ] System
     - [x] Use a prefab for the static assets at playtime so that they can be all edited at once
