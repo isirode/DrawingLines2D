@@ -33,7 +33,7 @@ public class DistanceLimiter : MonoBehaviour
 
     private void PointAdded(List<Vector3> currentPoints, Vector3 newPoint)
     {
-        // Debug.Log(nameof(PointAdded));
+        Debug.Log(nameof(PointAdded));
 
         if (firstPoint == default(Vector2))
         {

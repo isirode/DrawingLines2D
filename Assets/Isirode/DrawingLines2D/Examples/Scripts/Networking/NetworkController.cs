@@ -70,7 +70,7 @@ public class NetworkController : NetworkBehaviour
         }
         legacyInputController.LineBeginned += LegacyInputController_LineBeginned;
         legacyInputController.LineFinished += LegacyInputController_LineFinished;
-        legacyInputController.PointAdded += LegacyInputController_PointAdded; ;
+        legacyInputController.PointAdded += LegacyInputController_PointAdded;
     }
 
     private void LegacyInputController_LineBeginned()

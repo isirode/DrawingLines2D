@@ -47,15 +47,37 @@ public class SimpleDistanceDisplayer : MonoBehaviour
         {
             distanceLimiter = GetComponent<DistanceLimiter>();
         }
+        if (drawRing != null)
+        {
+            // TODO : configure the camera to use
+            // FIXME : does not seem to work very well
+            float zPosition = drawRing.gameObject.transform.position.z;
+            float zCamPosition = Camera.main.transform.position.z;
+            float distance = zPosition - zCamPosition;
+            if (distance < Camera.main.nearClipPlane)
+            {
+                Debug.LogWarning($"{nameof(distance)} ({distance}) < {nameof(Camera.main.nearClipPlane)} ({Camera.main.nearClipPlane}), the line will not be shown, ensure the y position is correctly set");
+            }
+        }
     }
 
     private void PointAdded(List<Vector3> currentPoints, Vector3 newPoint)
     {
-        // Debug.Log($"{nameof(SimpleDistanceDisplayer)}:{nameof(PointAdded)}");
+        Debug.Log($"{nameof(SimpleDistanceDisplayer)}:{nameof(PointAdded)}");
 
-        if (lineRenderer == null || drawRing == null || distanceLimiter == null)
+        if (lineRenderer == null)
         {
-            // TODO : log a warning
+            Debug.LogWarning($"{nameof(lineRenderer)} is necessary for {nameof(SimpleDistanceDisplayer)} to work");
+            return;
+        }
+        if (drawRing == null)
+        {
+            Debug.LogWarning($"{nameof(drawRing)} is necessary for {nameof(SimpleDistanceDisplayer)} to work");
+            return;
+        }
+        if (distanceLimiter == null)
+        {
+            Debug.LogWarning($"{nameof(distanceLimiter)} is necessary for {nameof(SimpleDistanceDisplayer)} to work");
             return;
         }
         // WARNING : checking the state of the legacyInputController is very important
@@ -63,7 +85,7 @@ public class SimpleDistanceDisplayer : MonoBehaviour
         // Causing a bug
         if (!isDrawing && legacyInputController.drawingState == LegacyInputController.DrawingState.AddingPoints)
         {
-            // Debug.Log("Enabling the circle");
+            Debug.Log("Enabling the circle");
 
             isDrawing = true;
 
