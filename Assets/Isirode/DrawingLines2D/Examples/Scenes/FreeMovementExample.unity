@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e96e480cfc04546a0726f143da7865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limit: 5
+  limit: 10
   legacyInputController: {fileID: 0}
 --- !u!114 &870245650
 MonoBehaviour:
