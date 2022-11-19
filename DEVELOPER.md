@@ -18,6 +18,8 @@ There is a list of features below which could be interesting.
   - [ ] Provide a 3D collider
     - Interest is limited for this
     - But it can be done using the bake mesh method of the LineRenderer or using a geometry mesh procedural generation
+  - [ ] Collision detection
+    - [x] Simple logger
 
 - [ ] Rendering
   - [x] Provide a LineRenderer rendering system
