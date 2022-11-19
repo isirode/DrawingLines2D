@@ -61,7 +61,6 @@ public class PolygonCompositeLineCollider2D
             // TODO : condition this to an option ?
             if (previous1 != default(Vector2) && previous2 != default(Vector2))
             {
-                Debug.Log("Filling in");
                 PolygonCollider2D fillCracksPolygon = gameObject.AddComponent<PolygonCollider2D>();
 
                 // WARNING : the order is important, otherwise it will be an X mesh
