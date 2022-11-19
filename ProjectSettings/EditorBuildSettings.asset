@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Isirode/DrawingLines2D/Examples/Scenes/FreeMovementExample.unity
+    guid: 19a02b1746f9157429bfb1e9ff397d66
+  - enabled: 0
     path: Assets/Isirode/DrawingLines2D/Examples/Scenes/Networking/MirrorSimpleExample.unity
     guid: 4efbc66c424b13f47929e2adbe891c4b
-  - enabled: 1
-    path: Assets/Isirode/DrawingLines2D/Examples/Scenes/PolygonPhysicsExample.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
