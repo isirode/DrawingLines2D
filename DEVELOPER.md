@@ -137,6 +137,7 @@ There is a list of features below which could be interesting.
     - Put one of the instances in "Host + client" or "Server", the other instance in "Client"
   - [x] Networking with live preview (shared to other players)
     - Same thing as "Networking" but the lines should be synced as you draw them, with the other instances
+  - [ ] Networking + distance limiter
   - [x] Free movement
   - [ ] System
     - [x] Use a prefab for the static assets at playtime so that they can be all edited at once
