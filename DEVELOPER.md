@@ -94,6 +94,12 @@ There is a list of features below which could be interesting.
     - [ ] Controller
     - [ ] Touch
 
+- [ ] Camera / controllers
+  - [x] Free movement
+    - ❗ You need to set the virtual camera's Aim to "Do nothing" to freeze the rotation of the camera
+      - Otherwise the LineRenderer will bug
+      - It seems that they are other way to achieve the same things 
+
 - [ ] Networking
   - [ ] Provide a networked controller
     - [x] Basic setup
@@ -121,6 +127,7 @@ There is a list of features below which could be interesting.
   - [x] Live preview
   - [x] Networking
   - [x] Networking with live preview (shared to other players)
+  - [x] Free movement
   - [ ] System
     - [x] Use a prefab for the static assets at playtime so that they can be all edited at once
     - [ ] Load some static assets at playtime
