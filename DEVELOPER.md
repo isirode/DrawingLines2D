@@ -116,6 +116,7 @@ There is a list of features below which could be interesting.
   - [ ] Make a GIF for the README.md section
   - [ ] Provide an interactive demo in a site web (link it in the README.md section)
     - [x] Github Pages demo ([demo](https://isirode.github.io/DrawingLines2DDemo), [repository](https://github.com/isirode/DrawingLines2DDemo))
+      - Gzip and fallback compression settings are needed
     - [ ] Itch.io demo
     - [ ] Networking demo
 
