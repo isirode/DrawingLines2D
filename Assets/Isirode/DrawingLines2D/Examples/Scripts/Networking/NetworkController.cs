@@ -25,6 +25,7 @@ public class NetworkController : NetworkBehaviour
     public float thickness = 0.1f;
     public static float COLLIDER_THICKNESS_MULTIPLIER = 0.5f;
 
+    // WARNING : even though it is not sync, it seem to work wether we are on client side or not
     public Color lineColor = Color.white;
     public bool useColor = true;
 
@@ -39,6 +40,12 @@ public class NetworkController : NetworkBehaviour
     String playerGuid = Guid.NewGuid().ToString();
 
     /// <summary>
+    /// Allow to give authority to the client when spawning lines
+    /// WARNING : the lines of the client will be remove when he disconnect
+    /// </summary>
+    public bool giveLineAuthorityToClient = false;
+
+    /// <summary>
     /// Click on it to open the editor
     /// Click below it to add a color
     /// Click on a pin to set it's color
@@ -51,8 +58,11 @@ public class NetworkController : NetworkBehaviour
     public LegacyInputController legacyInputController;
 
     // TODO : move it to another common class
-    public delegate void LineAddedDelegate(List<Vector3> points, GameObject gameObject);
-    public event LineAddedDelegate LineAdded;
+    public delegate void ClientLineAddedDelegate(List<Vector3> points, GameObject gameObject);
+    /// <summary>
+    /// This is the offline callback on the client once a line was added
+    /// </summary>
+    public event ClientLineAddedDelegate ClientLineAdded;
 
     #endregion
 
@@ -90,6 +100,7 @@ public class NetworkController : NetworkBehaviour
             Debug.LogWarning($"Calling {nameof(LegacyInputController_LineFinished)} but not {nameof(isLocalPlayer)}.");
             return;
         }
+        Debug.Log($"Color (offline) is {lineColor}");
         // TODO : check if livePreview is enabled
         if (currentLinePreviewGameObject == null)
         {
@@ -166,6 +177,7 @@ public class NetworkController : NetworkBehaviour
 
             networkLine.points = points;
             networkLine.thickness = thickness;
+            Debug.Log($"Color is {lineColor}");
             networkLine.lineColor = lineColor;
             networkLine.useColor = useColor;
             // networkLine.lineGradient = lineGradient;
@@ -191,7 +203,14 @@ public class NetworkController : NetworkBehaviour
         }
 
         // Info : this spawn the GameObject with server authority if connectionToClient is omitted
-        NetworkServer.Spawn(currentLineGameObject, connectionToClient);
+        if (giveLineAuthorityToClient)
+        {
+            NetworkServer.Spawn(currentLineGameObject, connectionToClient);
+        }
+        else
+        {
+            NetworkServer.Spawn(currentLineGameObject);
+        }
 
         RpcHasSpawned(currentLineGameObject, points);
 
@@ -223,10 +242,18 @@ public class NetworkController : NetworkBehaviour
         }
     }
 
+    /// <summary>
+    /// This method is the client side callback once the line was added
+    /// </summary>
+    /// <param name="lineGameObject"></param>
+    /// <param name="points"></param>
     [ClientRpc]
     public void RpcHasSpawned(GameObject lineGameObject, List<Vector3> points)
     {
         Debug.Log($"Has spawned: {lineGameObject.name}");
+
+        // Info : we put this at the start so that it is called every times
+        ClientLineAdded?.Invoke(points, lineGameObject);
 
         // WARNING : LineRenderer points are not sync
         var lineRenderer = lineGameObject.GetComponent<LineRenderer>();
@@ -290,6 +317,7 @@ public class NetworkController : NetworkBehaviour
                 if (!previewing)
                 {
                     Debug.Log("Send command to server");
+                    Debug.Log($"Color (offline) is {lineColor}");
                     previewing = true;
                     CmdAddLine(currentPoints, true, playerGuid);
                 }
