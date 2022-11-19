@@ -1,5 +1,14 @@
 {
   "dependencies": {
+    "com.isirode.unity-2d-controllers": {
+      "version": "https://github.com/isirode/Unity2DControllers.git?path=/Assets/Isirode/Unity2DControllers#0.0.1",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.cinemachine": "2.8.9"
+      },
+      "hash": "c619b323979853033902ba23e1ee7d782fc8855d"
+    },
     "com.unity.2d.animation": {
       "version": "7.0.8",
       "depth": 1,
@@ -91,6 +100,15 @@
       "source": "registry",
       "dependencies": {
         "com.unity.mathematics": "1.2.1"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.cinemachine": {
+      "version": "2.8.9",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.test-framework": "1.1.31"
       },
       "url": "https://packages.unity.com"
     },

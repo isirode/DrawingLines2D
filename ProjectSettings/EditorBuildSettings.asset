@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Isirode/DrawingLines2D/Examples/Scenes/MirrorSimpleExample.unity
+    path: Assets/Isirode/DrawingLines2D/Examples/Scenes/Networking/MirrorSimpleExample.unity
     guid: 4efbc66c424b13f47929e2adbe891c4b
   - enabled: 1
     path: Assets/Isirode/DrawingLines2D/Examples/Scenes/PolygonPhysicsExample.unity
