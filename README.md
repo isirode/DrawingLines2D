@@ -4,9 +4,11 @@ This project allow to draw 2D lines at playtime using point & click system.
 
 ## Main features
 
-The project allow to draw 2D lines with a collider, the collider interact with each others:
+The project allow to draw 2D lines with a collider, the collider interact with each others.
 
-![Polygon Composite Collider Example](./Documentation/Resources/PolygonCompositeColliderExample.PNG)
+Multi-color example:
+
+![Multi Color Example](./Documentation/Resources/MultiColorExample.PNG)
 
 The project also allow to not setup a collision system for the lines:
 
