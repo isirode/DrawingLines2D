@@ -105,6 +105,7 @@ There is a list of features below which could be interesting.
     - [x] Basic setup
     - [ ] Support for the other functionalities
       - [x] Live preview
+      - [ ] Private live preview
 
 - [ ] Render pipelines
   - [x] Built-in
