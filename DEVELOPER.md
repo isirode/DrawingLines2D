@@ -20,6 +20,7 @@ There is a list of features below which could be interesting.
     - But it can be done using the bake mesh method of the LineRenderer or using a geometry mesh procedural generation
   - [ ] Collision detection
     - [x] Simple logger
+    - [x] Make line static when colliding
 
 - [ ] Rendering
   - [x] Provide a LineRenderer rendering system
