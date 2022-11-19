@@ -2,6 +2,14 @@
 
 This project allow to draw 2D lines at playtime using point & click system.
 
+## Demo
+
+There is a Github Pages demo available here https://isirode.github.io/DrawingLines2DDemo featuring
+* Drawing the lines by clicking, dragging and releasing the mouse's left button
+* Free movement using the usual azerty or arrow keys
+* Random color pool
+* Range limiter
+
 ## Main features
 
 The project allow to draw 2D lines with a collider, the collider interact with each others.
