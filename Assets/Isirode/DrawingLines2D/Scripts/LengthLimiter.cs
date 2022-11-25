@@ -26,6 +26,9 @@ public class LengthLimiter : MonoBehaviour
         if (legacyInputController != null)
         {
             legacyInputController.PointAdded += PointAdded;
+            // TODO : this does not garantee to be called when a line is added
+            // Should the length limiter be reset regardless ?
+            legacyInputController.LineFinished += LineFinished;
         }
         else
         {
@@ -57,7 +60,13 @@ public class LengthLimiter : MonoBehaviour
         }
     }
 
+    // FIXME : not used anymore
     private void LineAdded(List<Vector3> points, GameObject gameObject)
+    {
+        ResetState();
+    }
+
+    private void LineFinished(List<Vector3> points)
     {
         ResetState();
     }

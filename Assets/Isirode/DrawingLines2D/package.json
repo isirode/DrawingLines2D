@@ -1,7 +1,7 @@
 {
   "name": "com.isirode.draw-lines-2d",
   "displayName": "Isirode.DrawLines2D",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "unity": "2021.3",
   "description": "Allow to draw lines with physics collider in Unity 2D",
   "keywords": [ "draw", "lines", "physics", "2D" ],
