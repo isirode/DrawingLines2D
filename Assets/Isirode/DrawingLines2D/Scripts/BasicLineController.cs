@@ -117,29 +117,7 @@ public class BasicLineController : MonoBehaviour
 
         // TODO : can probably replace it by a polymorphism system
         // Setup the collision
-        switch (physicsType)
-        {
-            case PhysicsType.NoPhysics:
-                // do nothing
-                var collider = currentLineGameObject.GetComponent<Collider2D>();
-                if (collider != null)
-                {
-                    Debug.LogWarning($"You have picked {nameof(PhysicsType)} {physicsType} but a {nameof(Collider2D)} {collider.GetType().Name} is present in the chosen prefab {prefab.name}.");
-                }
-                if (currentLineGameObject.GetComponent<Rigidbody2D>())
-                {
-                    Debug.LogWarning($"You have picked {nameof(PhysicsType)} {physicsType} but a {nameof(Rigidbody2D)} is present in the chosen prefab {prefab.name}.");
-                }
-                break;
-            case PhysicsType.EdgeCollider2D:
-                EdgeCollider2DLineCollider2D.Setup(currentLineGameObject, points, thickness);
-                break;
-            case PhysicsType.PolygonComposite2D:
-                PolygonCompositeLineCollider2D.Setup(currentLineGameObject, points, thickness * COLLIDER_THICKNESS_MULTIPLIER);
-                break;
-            default:
-                throw new Exception($"{nameof(PhysicsType)} {physicsType} is not currently handler.");
-        }
+        SetupLinePhysics(points, currentLineGameObject);
 
         // WARNING : awaiting the game object to be ready before spawning it actively
         // gameObject.SetActive(true);
@@ -147,6 +125,7 @@ public class BasicLineController : MonoBehaviour
         {
             rigidbody2D.isKinematic = false;
             rigidbody2D.simulated = true;
+            // rigidbody2D.constraints = RigidbodyConstraints2D.FreezeAll;
         }
 
         LineAdded?.Invoke(points, currentLineGameObject);
@@ -164,7 +143,8 @@ public class BasicLineController : MonoBehaviour
             if (currentLineGameObject == null)
             {
                 Debug.Log("Instantiating");
-                currentLineGameObject = Instantiate(prefab, this.gameObject.transform);
+                currentLineGameObject = Instantiate(prefab, this.gameObject.transform); 
+
                 var rigidBody2D = currentLineGameObject.GetComponent<Rigidbody2D>();
 
                 if (rigidBody2D != null)
@@ -174,9 +154,41 @@ public class BasicLineController : MonoBehaviour
                     //   If yes, modify the other parts of the code using this
                     rigidBody2D.isKinematic = true;
                     rigidBody2D.simulated = false;
+                    // Debug.Log("Freezing all");
+                    // rigidBody2D.constraints = RigidbodyConstraints2D.FreezeAll;
                 }
             }
             UnityLineRenderer.Setup(currentLineGameObject, currentPoints, thickness, lineColor, useColor, lineGradient, useGradient);
+            // SetupLinePhysics(currentPoints, currentLineGameObject);
+        }
+    }
+
+    void SetupLinePhysics(List<Vector3> points, GameObject lineGameObject)
+    {
+        // TODO : can probably replace it by a polymorphism system
+        // Setup the collision
+        switch (physicsType)
+        {
+            case PhysicsType.NoPhysics:
+                // do nothing
+                var collider = lineGameObject.GetComponent<Collider2D>();
+                if (collider != null)
+                {
+                    Debug.LogWarning($"You have picked {nameof(PhysicsType)} {physicsType} but a {nameof(Collider2D)} {collider.GetType().Name} is present in the chosen prefab {prefab.name}.");
+                }
+                if (lineGameObject.GetComponent<Rigidbody2D>())
+                {
+                    Debug.LogWarning($"You have picked {nameof(PhysicsType)} {physicsType} but a {nameof(Rigidbody2D)} is present in the chosen prefab {prefab.name}.");
+                }
+                break;
+            case PhysicsType.EdgeCollider2D:
+                EdgeCollider2DLineCollider2D.Setup(lineGameObject, points, thickness);
+                break;
+            case PhysicsType.PolygonComposite2D:
+                PolygonCompositeLineCollider2D.Setup(lineGameObject, points, thickness * COLLIDER_THICKNESS_MULTIPLIER);
+                break;
+            default:
+                throw new Exception($"{nameof(PhysicsType)} {physicsType} is not currently handler.");
         }
     }
 }
