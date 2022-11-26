@@ -83,6 +83,10 @@ There is a list of features below which could be interesting.
   - [ ] Option to not draw over an existing line
     - [ ] All lines
     - [ ] Only certain lines
+    - What is difficult is that it will trigger itself during the drawin
+    - Either the cursor collider need to be slightly in front
+    - Or the lines need to be added slightly after
+    - Or it need another system
   - [ ] Option to have a minimum distance line
   - [ ] Option to have a minimum length line
 
