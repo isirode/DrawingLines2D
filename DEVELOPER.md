@@ -78,7 +78,8 @@ There is a list of features below which could be interesting.
     - [ ] For some value of an axis
     - [ ] Inside a box
     - [ ] Inside a mesh
-  - [ ] Option to move an object at the cursor's position
+  - [x] Option to move an object at the cursor's position
+  - [x] Option to not draw over an other collider
   - [ ] Option to not draw over an existing line
     - [ ] All lines
     - [ ] Only certain lines
