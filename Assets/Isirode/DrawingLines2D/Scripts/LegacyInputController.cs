@@ -68,6 +68,7 @@ public class LegacyInputController : MonoBehaviour
     {
         while (drawingState == DrawingState.AddingPoints)
         {
+            // FIXME : Min is not right
             // WARN : using camera near clipping plane is important, without it, the LineRenderer will not be visible
             Vector3 newPoint = camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Mathf.Min(camera.nearClipPlane, 0.5f)));
             recorder.Add(newPoint);
@@ -89,8 +90,10 @@ public class LegacyInputController : MonoBehaviour
     public void Stop()
     {
         // Debug.Log(nameof(Stop));
-
-        StopCoroutine(repeatingCoroutine);
+        if (repeatingCoroutine != null)
+        {
+            StopCoroutine(repeatingCoroutine);
+        }
         drawingState = DrawingState.Waiting;
     }
 }
