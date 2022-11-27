@@ -116,6 +116,7 @@ There is a list of features below which could be interesting.
       - [ ] Private live preview
       - [x] Limiters using LegacyInputController
       - [x] Color pool changes
+  - [ ] Todo : move it in another repository (it require Mirror, currently, which is unecessary for the rest to work)
 
 - [ ] Render pipelines
   - [x] Built-in
