@@ -31,7 +31,9 @@ To run the project, open one of the scenes, and use left click + hold (draw), re
 ## Importing the project
 
 You can add this package as a git url : 
-- "https://github.com/isirode/DrawingLines2D.git?path=/Assets/Isirode/DrawingLines2D#0.0.2".
+- "https://github.com/isirode/DrawingLines2D.git?path=/Assets/Isirode/DrawingLines2D#VERSION".
+
+Replace "VERSION" by the version you want, such as "https://github.com/isirode/DrawingLines2D.git?path=/Assets/Isirode/DrawingLines2D#0.0.1", for instance.
 
 The project will be added to your "Packages" folder, the scenes will be read-only, if you want to open them, just copy them in your Assets folder and they will be usable.
 
