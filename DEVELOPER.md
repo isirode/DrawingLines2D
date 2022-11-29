@@ -58,6 +58,8 @@ There is a list of features below which could be interesting.
 
 - [ ] Playability
   - [ ] Option to remove the line after a certain time
+
+- [ ] Limiters
   - [ ] Option to stop adding points if a certain distance between start point and end point is attained
     - [x] Dummy version (the limit can be slightly breached)
     - [ ] Strict version
@@ -76,7 +78,8 @@ There is a list of features below which could be interesting.
   - [ ] Option to start drawing from an existing line (like a tree maybe)
   - [ ] Option to draw only
     - [ ] For some value of an axis
-    - [ ] Inside a box
+    - [x] Inside a Collider2D
+    - [x] Not inside a Collider2D
     - [ ] Inside a mesh
   - [x] Option to move an object at the cursor's position
   - [x] Option to not draw over an other collider
@@ -151,6 +154,8 @@ There is a list of features below which could be interesting.
   - [x] Networking + distance limiter
   - [x] Networking + color pool
   - [x] Free movement
+  - [x] Coordinate limiters
+  - [x] Collider2D limiters
   - [ ] System
     - [x] Use a prefab for the static assets at playtime so that they can be all edited at once
     - [ ] Load some static assets at playtime
