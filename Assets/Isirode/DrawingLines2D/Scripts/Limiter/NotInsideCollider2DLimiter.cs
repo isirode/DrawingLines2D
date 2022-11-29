@@ -28,6 +28,7 @@ public class NotInsideCollider2DLimiter : MonoBehaviour
 
     private void PointAdded(List<Vector3> currentPoints, Vector3 newPoint)
     {
+        // Info : we could also use the bounds
         if (collider2D.OverlapPoint(new Vector2(newPoint.x, newPoint.y)))
         {
             legacyInputController.FinishLine();
